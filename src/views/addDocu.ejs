@@ -1,0 +1,31 @@
+<%- include('./layout/menu'); -%>
+<%- include('./layout/body', {title:"Inserción de Documentos", instructions:`Seleccione documento y el proyecto al que pertenece`, 
+subTitle:"Subir Documento", icon: "fas fa-upload"}); -%>
+
+
+<div class="form-group">
+  <div class="row mb-2">
+    <div class="col-md-12 col-lg-6 control-label">
+      <label class="form-label" for="customFile">Seleccione el documento</label>
+      <input type="file" class="form-control" id="file" />
+      <div class="invalid-feedback file" style="display: none; color: red">
+        Seleccione un archivo
+      </div>
+    </div>
+    <div class="col-md-12 col-lg-6 control-label mb-2">
+      <label for="actividad" >Seleccione proyecto</label>
+      <select id="projects" class="custom-select">
+        <option selected id="0">Opciones...</option>
+      </select>
+      <div class="invalid-feedback projects" style="display: none; color: red">
+        Seleccion un proyecto porfavor.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<%- include('./layout/bodyFooterBtn', {btnText: "Subir Documento"}); -%> <%- include('./layout/footer'); -%>
+<script src="./views_js/documents.js"></script>

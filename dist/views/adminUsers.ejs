@@ -1,0 +1,95 @@
+<%- include('./layout/menu'); -%> <%- include('./layout/body',
+{title:"Administración de usuarios", instructions:`En esta vista se pueden
+administrar todos los usuarios que trabajan con el sistema, ya sea agregar,
+editar o dar de baja usuarios.`, subTitle:"Lista de usuarios", icon: "fas fa-table"}); -%>
+
+<div class="table-responsive">
+  <table class="table table-bordered" id="table-usuario" width="100%" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Rut</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Estado</th>
+        <th>Editar</th>
+        <th>Bloquear/Desbloquear</th>
+      </tr>
+    </thead>
+  </table>
+</div>
+
+<%- include('./layout/bodyFooterBtn', {btnText: "Agregar Usuario"}); -%>
+
+<div class="modal fade bd-example-modal-lg" id="agregarUser" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="titulo">Agregar Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm">
+            <p id="UserModalInfo"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row mb-2">
+            <div class="col-md-12 col-lg-6 control-label">
+              <label for="actividad">Rut</label>
+              <input type="text" class="form-control" id="rut" name="rut" />
+              <div class="invalid-feedback rut" style="display: none; color: red">
+                Ingrese un Rut porfavor.
+              </div>
+              <div class="invalid-feedback rut_valid" style="display: none; color: red">
+                Ingrese un Rut valido porfavor.
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-6 control-label">
+              <label for="actividad">Nombre completo</label>
+              <input type="text" class="form-control" name="name" id="name" />
+              <div class="invalid-feedback name" style="display: none; color: red">
+                Ingrese su Nombre completo porfavor.
+              </div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-md-12 col-lg-6 control-label">
+              <label for="actividad">Email</label>
+              <input type="text" class="form-control" name="email" id="email" />
+              <div class="invalid-feedback email" style="display: none; color: red">
+                Ingrese un Email porfavor.
+              </div>
+              <div class="invalid-feedback email_valid" style="display: none; color: red">
+                Ingrese un Email valido porfavor.
+              </div>
+            </div>
+            <div id="passdiv" class="col-md-12 col-lg-6 control-label">
+              <label for="actividad">Contraseña</label>
+              <input type="password" class="form-control" name="passwd" id="passwd" />
+              <div class="invalid-feedback passwd" style="display: none; color: red">
+                Ingrese una Contraseña porfavor.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" id="addUser" class="btn btn-primary">
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="./views_js/adminUser.js"></script>
+
+<%- include('./layout/footer'); -%>

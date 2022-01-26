@@ -1,0 +1,128 @@
+<%- include('./layout/menu'); -%>
+  <%- include('./layout/body', {title:"Administración de proyectos", instructions:`En esta vista se pueden visualizar
+    todos los proyectos dentro del sistema.`, subTitle:"Lista de proyectos", icon: "fas fa-table" }); -%>
+
+    <div class="table-responsive">
+      <table class="table table-bordered" id="table-project" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Nombre proyecto</th>
+            <th>Saldo</th>
+            <th>Fecha entrega</th>
+            <th>Estimado</th>
+            <th>Estado</th>
+            <th>Detalles</th>
+            <th>Estado</th>
+            <th>Ver flujo</th>
+            <th>Cerrar mes</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+
+    <%- include('./layout/bodyFooter'); -%>
+      <div class="modal fade bd-example-modal-lg" id="statusModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="titulo">Agregar </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-sm">
+                  <p id="UserModalInfo"></p>
+                </div>
+              </div>
+              <div class="form-group">
+                <th>Estado</th>
+                <select id="status" class="custom-select">
+                  <option selected id="0">Opciones...</option>
+                </select>
+                <div class="invalid-feedback state" style="display: none; color: red">
+                  Seleccion un estado porfavor.
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">
+                Cerrar
+              </button>
+              <button type="button" id="changeStatus" class="btn btn-primary">
+                Guardar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade bd-example-modal-lg" id="closeMonthModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="titulo">Cierre de mes</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <div class="row mb-2">
+                  <div class="col-md-12 col-lg-6 control-label">
+                    <label for="fechai">Fecha de inicio</label>
+                    <input type="date" class="form-control" id="fechai" name="fechai">
+                    <div class="invalid-feedback fechai" style="display: none; color: red">
+                      Ingrese una fecha de inicio porfavor.
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-lg-6 control-label">
+                    <label for="fechaf">Fecha de término</label>
+                    <input type="date" class="form-control" id="fechaf" name="fechaf">
+                    <div class="invalid-feedback fechaf" style="display: none; color: red">
+                      Ingrese una fecha de término porfavor.
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-12 col-lg-6 control-label">
+                    <label for="pago">Pago bruto</label>
+                    <input type="number" class="form-control" id="pago" min="1" name="pago">
+                    <div class="invalid-feedback pago" style="display: none; color: red">
+                      Ingrese el pago bruto porfavor.
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-lg-6 control-label">
+                    <label for="gastos">Otros gastos</label>
+                    <input type="number" class="form-control" id="gastos" min="0" name="gastos">
+                    <div class="invalid-feedback gastos" style="display: none; color: red">
+                      Ingrese el pago bruto porfavor.
+                    </div>
+                  </div>
+                </div>
+                <h6><em><strong>Pagos a trabajadores</strong></em></h6>
+                <div id="divTrabajadores">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">
+                  Cerrar
+                </button>
+                <button type="button" id="saveBilling" class="btn btn-primary">
+                  Guardar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="./views_js/projects.js"></script>
+
+        <%-include('./layout/footer'); -%>

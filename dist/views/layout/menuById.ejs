@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>GP CIN</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="../vendor/bootstrap-notify/css/bootstrap-notify.css" rel="stylesheet" type="text/css" />
+    <link href="../vendor/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="../vendor/bootstrap-select-1.13.14/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        .chargePage {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(255, 255, 255, .8) url('img/loading.svg') 50% 50% no-repeat
+        }
+
+        body.loading .chargePage {
+            overflow: hidden;
+            display: block
+        }
+
+        .box {
+            margin-top: 50px;
+            padding: 15px
+        }
+    </style>
+
+</head>
+
+<script>
+            const host_url = "../";
+</script>
+
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../home">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">GP CIN</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0" />
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="../home">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Inicio</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider" />
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Administración</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../users"><i class="fas fa-list-ul"></i> Lista de usuarios</a>
+                    </div>
+                </div>
+            </li>
+
+
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProjects"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-folder"></i>
+                    <span>Proyectos</span>
+                </a>
+                <div id="collapseProjects" class="collapse" aria-labelledby="headingTwo"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../projects"><i class="fas fa-list-ul"></i> Ver proyectos</a>
+                        <a class="collapse-item" href="../addProject"><i class="fas fa-list-ul"></i> Agregar
+                            proyecto</a>
+
+                    </div>
+                </div>
+            </li>
+
+
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseWorkers"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Trabajadores</span>
+                </a>
+                <div id="collapseWorkers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../workers"><i class="fas fa-list-ul"></i> Ver trabajadores</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDocuments"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-file-upload"></i>
+                    <span>Documentos</span>
+                </a>
+                <div id="collapseDocuments" class="collapse" aria-labelledby="headingTwo"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../addDocu"><i class="fas fa-plus"></i> Subir Documento</a>
+                    </div>
+                </div>
+            </li>
+
+
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseInterests"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Impuestos</span>
+                </a>
+                <div id="collapseInterests" class="collapse" aria-labelledby="headingTwo"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../interests"><i class="fas fa-list-ul"></i> Ver impuestos</a>
+                        <a class="collapse-item" href="../addNewInterest"><i class="fas fa-list-ul"></i> Agregar
+                            impuesto</a>
+                    </div>
+                </div>
+            </li>
+
+
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">usuario</span>
+                                <img class="img-profile rounded-circle"
+                                    src="https://source.unsplash.com/QAB-WJcbgJk/60x60" />
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Salir
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">¿Todo Listo?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Presione "Cerrar Sesión" para salir del sistema</div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                <a class="btn btn-primary" href="../" id="logout">Cerrar Sesión</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Cambiar Contraseña</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <p id="UserModalInfo"></p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row mb-2">
+                                        <div class="col-md-12 col-lg-4 control-label">
+                                            <label for="actividad">Contraseña Actual</label>
+                                            <input type="password" class="form-control" id="pass" name="rut">
+                                            <div class="invalid-feedback pass" style="display: none;  color:red">
+                                                Ingrese su Contraseña porfavor.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-4 control-label">
+                                            <label for="actividad">Nueva Contraseña</label>
+                                            <input type="password" class="form-control" name="name" id="newPass">
+                                            <div class="invalid-feedback newpass" style="display: none;  color:red">
+                                                Ingrese su nueva contraseña porfavor.
+                                            </div>
+                                            <div class="invalid-feedback distpass" style="display: none;  color:red">
+                                                Las claves no coinciden.
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-lg-4 control-label">
+                                            <label for="actividad">Repita Contraseña</label>
+                                            <input type="password" class="form-control" name="name" id="newPassRep">
+                                            <div class="invalid-feedback newpassrep" style="display: none;  color:red">
+                                                Repita su contraseña porfavor.
+                                            </div>
+                                            <div class="invalid-feedback distpass" style="display: none;  color:red">
+                                                Las claves no coinciden.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                <a class="btn btn-primary" href="#" id="changePass">Cambiar Contraseña</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script src="../vendor/jquery/jquery.min.js"></script>
+                <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <script src="../vendor/bootstrap-notify/js/bootstrap-notify.js"></script>
+                <script src="../vendor/datatables/datatables.min.js"></script>
+                <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+                <script src="../vendor/jquery-rut/jquery.rut.js"></script>
+                <script src="../js/sb-admin-2.min.js"></script>
+                <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+                <script src="../vendor/bootstrap-select-1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+                <!-- Begin Page Content -->
+
+                <!-- /.container-fluid -->

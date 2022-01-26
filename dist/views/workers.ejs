@@ -1,0 +1,86 @@
+<%- include('./layout/menu'); -%> <%- include('./layout/body',
+{title:"Administración de trabajadores", instructions:`En esta vista se pueden
+visualizar todos los trabajadores dentro del sistema.`, subTitle:"Lista de trabajadores", icon: "fas fa-table"}); -%>
+
+<div class="table-responsive">
+    <table class="table table-bordered" id="table-workers" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Rut</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Detalles</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<%- include('./layout/bodyFooterBtn', {btnText: "Agregar Trabajador"}); -%>
+
+<div class="modal fade bd-example-modal-lg" id="agregarWorker" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="titulo">Agregar trabajador</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm">
+                        <p id="WorkerModalInfo"></p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row mb-2">
+                        <div class="col-md-12 col-lg-6 control-label">
+                            <label for="actividad">Rut</label>
+                            <input type="text" class="form-control" id="rutWorker" name="rutWorker" />
+                            <div class="invalid-feedback rut" style="display: none; color: red">
+                                Ingrese un Rut porfavor.
+                            </div>
+                            <div class="invalid-feedback rut_valid" style="display: none; color: red">
+                                Ingrese un Rut valido porfavor.
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6 control-label">
+                            <label for="actividad">Nombre completo</label>
+                            <input type="text" class="form-control" name="nameWorker" id="nameWorker" />
+                            <div class="invalid-feedback name" style="display: none; color: red">
+                                Ingrese su Nombre completo porfavor.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-12 col-lg-6 control-label">
+                            <label for="actividad">Email</label>
+                            <input type="text" class="form-control" name="emailWorker" id="emailWorker" />
+                            <div class="invalid-feedback email" style="display: none; color: red">
+                                Ingrese un Email porfavor.
+                            </div>
+                            <div class="invalid-feedback email_valid" style="display: none; color: red">
+                                Ingrese un Email valido porfavor.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">
+                    Cerrar
+                </button>
+                <button type="button" id="addWorker" class="btn btn-primary">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="./views_js/workers.js"></script>
+
+<%-include('./layout/footer'); -%>

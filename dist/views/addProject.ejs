@@ -1,0 +1,100 @@
+<%- include('./layout/menu'); -%>
+  <%- include('./layout/body', {title:"Administracion de Proyectos", instructions:`En esta vista se podra agregar un
+    nuevo proyecto con sus respectivos datos al sistema.`, subTitle:"Agregar Proyecto", icon: "fas fa-plus" }); -%>
+
+    <form>
+      <div class="form-group">
+        <div class="row mb-2">
+          <div class="col-md-12 col-lg-6 control-label">
+            <label for="projectName">Nombre del proyecto</label>
+            <input type="text" class="form-control" id="projectName" name="projectName">
+            <div class="invalid-feedback projectName" style="display: none; color: red">
+              Ingrese el nombre del proyeto porfavor.
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-6 control-label">
+            <label for="clientName">Cliente</label>
+            <input type="text" class="form-control" id="clientName" name="clientName">
+            <div class="invalid-feedback clientName" style="display: none; color: red">
+              Ingrese el nombre del cliente porfavor.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row mb-2">
+          <div class="col-md-12 col-lg-6 control-label">
+            <label for="clientContact">Email del cliente</label>
+            <input type="email" class="form-control" id="clientContact" name="clientContact">
+            <div class="invalid-feedback clientContact" style="display: none; color: red">
+              Ingrese el email del cliente porfavor.
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-6 control-label">
+            <label for="budget">Presupuesto</label>
+            <input type="number" class="form-control" id="budget" name="budget" min="1">
+            <div class="invalid-feedback budget" style="display: none; color: red">
+              Ingrese un presupuesto porfavor.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row mb-2">
+          <div class="col-md-12 col-lg-6 control-label">
+            <label for="initialBalance">Saldo inicial</label>
+            <input type="number" class="form-control" id="initialBalance" name="initialBalance" min="1">
+            <div class="invalid-feedback initialBalance" style="display: none; color: red">
+              Ingrese un saldo inicial porfavor.
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-6 control-label">
+            <label for="deadlineDate">Fecha de término del proyecto</label>
+            <input type="date" class="form-control" id="deadlineDate" name="deadlineDate">
+            <div class="invalid-feedback deadlineDate" style="display: none; color: red">
+              Ingrese una fecha de término porfavor.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row mb-2">
+          <div class="col-md-12 col-lg-6 control-label">
+            <label for="external">¿El proyecto es externo?</label>
+            <select class="form-control" id="external-select">
+              <option value="S">Sí</option>
+              <option value="N">No</option>
+            </select>
+          </div>
+          <div class="col-md-12 col-lg-6 control-label">
+            <label for="workers">Trabajadores</label>
+            <select class="selectpicker form-control" id="workers-selectpicker" multiple
+              title="Elija los trabajadores"></select>
+            <div class="invalid-feedback workers-selectpicker" style="display: none; color: red">
+              Seleccione al menos un trabajador porfavor.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row mb-2">
+          <div class="col-md-12 col-lg-6 control-label">
+            <label for="taxes">Impuestos</label>
+            <select class="selectpicker form-control" id="taxes-selectpicker" multiple
+              title="Elija los impuestos"></select>
+            <div class="invalid-feedback taxes-selectpicker" style="display: none; color: red">
+              Seleccione al menos un impuesto porfavor.
+            </div>
+          </div>
+        </div>
+      </div>
+
+<%- include('./layout/bodyFooterBtn', {btnText: "Agregar Proyecto" }); -%>
+
+<script src="./views_js/addProject.js"></script>
+
+<%- include('./layout/footer'); -%>

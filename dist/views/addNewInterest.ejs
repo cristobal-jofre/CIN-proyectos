@@ -1,0 +1,40 @@
+<%- include('./layout/menu'); -%>
+  <%- include('./layout/body', {title:"Administración de impuestos", instructions:`En esta vista se pueden agregar los
+    nuevos impuestos que se aplican a los proyectos.`, subTitle:"Agregar impuestos", icon: "fas fa-percent" }); -%>
+
+    <form>
+      <div class="form-group">
+        <div class="row mb-2">
+          <div class="col-md-12 col-lg-6 control-label">
+            <label for="interestName">Nombre del impuesto</label>
+            <input type="text" class="form-control" id="interestName" name="interestName">
+            <div class="invalid-feedback interestName" style="display: none; color: red">
+              Ingrese un Nombre porfavor.
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-6 control-label">
+            <label for="interestArea">Área del impuesto</label>
+            <input type="text" class="form-control" id="interestArea" name="interestArea">
+            <div class="invalid-feedback interestArea" style="display: none; color: red">
+              Ingrese un Área porfavor.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row mb-2">
+          <div class="col-md-12 col-lg-6 control-label">
+            <label for="interestPercentage">Porcentaje del impuesto</label>
+            <input type="text" class="form-control" id="interestPercentage" name="interestPercentage">
+            <div class="invalid-feedback interestPercentage" style="display: none; color: red">
+              Ingrese un Porcentaje porfavor.
+            </div>
+          </div>
+        </div>
+      </div>
+</form>
+
+<%- include('./layout/bodyFooterBtn', {btnText: "Agregar impuesto" }); -%>
+<script src="./views_js/interests.js"></script>
+<%- include('./layout/footer'); -%>

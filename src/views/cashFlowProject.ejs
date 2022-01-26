@@ -1,0 +1,43 @@
+<%- include('./layout/menuById'); -%>
+    <%- include('./layout/bodyDetails', {title:"Flujo de caja", subTitle:"Información del proyecto",
+        icon: "fas fa-table" }); -%>
+
+        <input id="invisible" type="hidden" value="<%= id %>">
+
+        <div class="form-group">
+            <div class="row mb-2">
+                <div class="col-md-12 col-lg-4 control-label">
+                    <label for="actividad">Seleccione ciclo de facturación </label>
+                    <select id="billings" class="custom-select">
+                        <option selected id="0">Opciones...</option>
+                    </select>
+                    <div class="invalid-feedback billings" style="display: none; color: red">
+                        Seleccion un facturación porfavor.
+                    </div>
+                </div>
+               
+            </div>
+        
+            <div class="row mb-2 mt-5">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="table-cashFlow" width="100%" cellspacing="0">
+                          <thead>
+                            <tr>
+                              <th>Fecha</th>
+                              <th>Pago bruto</th>
+                              <th>Impuestos</th>
+                              <th>Sueldos</th>
+                              <th>Otros gastos</th>
+                              <th>Total gastos</th>
+                            </tr>
+                          </thead>
+                        </table>
+                      </div>
+                </div>
+            </div>    
+        </div>
+
+<%- include('./layout/bodyFooter'); -%>
+<script src="../views_js/cashFlowProject.js"></script>
+<%-include('./layout/footer'); -%>

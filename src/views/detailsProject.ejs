@@ -1,0 +1,65 @@
+<%- include('./layout/menuById'); -%>
+<%- include('./layout/bodyDetails',
+{title:"Administración de proyectos / Detalle del proyecto", subTitle:"Información del proyecto", icon: "fas fa-table"}); -%>
+
+<input id="invisible" type="hidden" value="<%= id %>">
+
+<div class="row">
+  <div class="col-12">
+    <div class="container-fluid mb-5">
+      <h4>
+        Trabajadores
+      </h4>
+      <div class="table-responsive">
+        <table class="table table-bordered" id="trabajadores" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Rut </th>
+              <th>Nombre </th>
+              <th>Email</th>
+      
+            </tr>
+          </thead>
+      </div>
+        <tbody>
+      
+        </tbody>
+        </table>
+        </div>
+      </div>
+      
+      </div>
+
+</div>
+
+<div class="row">
+  <div class="col-12 ">
+    <div class="container-fluid mb-5">
+      <h4>
+        Documentos
+      </h4>
+      <div class="table-responsive">
+        <table class="table table-bordered" id="documentos" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>DIR documento </th>
+              <th>Fecha </th>
+      
+            </tr>
+          </thead>
+      </div>
+      <tbody>
+      
+      </tbody>
+      </table>
+      </div>
+  </div>
+  
+  </div>
+  
+  <%- include('./layout/bodyFooter'); -%>
+
+  <!-- Scripts -->
+  <script src="../views_js/detailsProject.js"></script>
+  
+  <%-include('./layout/footer'); -%>
